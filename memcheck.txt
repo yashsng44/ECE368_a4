@@ -1,0 +1,229 @@
+==2418860== Memcheck, a memory error detector
+==2418860== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2418860== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==2418860== Command: ./a4
+==2418860== Parent PID: 2418859
+==2418860== 
+--2418860-- 
+--2418860-- Valgrind options:
+--2418860--    --tool=memcheck
+--2418860--    --log-file=memcheck.txt
+--2418860--    --leak-check=full
+--2418860--    --show-leak-kinds=all
+--2418860--    --verbose
+--2418860-- Contents of /proc/version:
+--2418860--   Linux version 5.15.0-119-generic (buildd@lcy02-amd64-075) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #129-Ubuntu SMP Fri Aug 2 19:25:20 UTC 2024
+--2418860-- 
+--2418860-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--2418860-- Page sizes: currently 4096, max supported 4096
+--2418860-- Valgrind library directory: /usr/libexec/valgrind
+--2418860-- Reading syms from /home/shay/a/sing1018/ECE382/ECE368_a4/a4
+--2418860-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--2418860--   Considering /usr/lib/debug/.build-id/41/86944c50f8a32b47d74931e3f512b811813b64.debug ..
+--2418860--   .. build-id is valid
+--2418860-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--2418860--    object doesn't have a symbol table
+--2418860--    object doesn't have a dynamic symbol table
+--2418860-- Scheduler: using generic scheduler lock implementation.
+--2418860-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==2418860== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2418860-by-sing1018-on-???
+==2418860== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2418860-by-sing1018-on-???
+==2418860== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2418860-by-sing1018-on-???
+==2418860== 
+==2418860== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2418860== don't want to do, unless you know exactly what you're doing,
+==2418860== or are doing some strange experiment):
+==2418860==   /usr/bin/vgdb --pid=2418860 ...command...
+==2418860== 
+==2418860== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2418860==   /path/to/gdb ./a4
+==2418860== and then give GDB the following command
+==2418860==   target remote | /usr/bin/vgdb --pid=2418860
+==2418860== --pid is optional if only one valgrind process is running
+==2418860== 
+--2418860-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--2418860-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--2418860-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--2418860--    object doesn't have a symbol table
+--2418860-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--2418860--    object doesn't have a symbol table
+==2418860== WARNING: new redirection conflicts with existing -- ignoring it
+--2418860--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--2418860--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--2418860-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--2418860-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--2418860-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--2418860--   Considering /usr/lib/debug/.build-id/49/0fef8403240c91833978d494d39e537409b92e.debug ..
+--2418860--   .. build-id is valid
+==2418860== WARNING: new redirection conflicts with existing -- ignoring it
+--2418860--     old: 0x0493bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--2418860--     new: 0x0493bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==2418860== WARNING: new redirection conflicts with existing -- ignoring it
+--2418860--     old: 0x0493bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--2418860--     new: 0x0493bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==2418860== WARNING: new redirection conflicts with existing -- ignoring it
+--2418860--     old: 0x0493bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--2418860--     new: 0x0493bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==2418860== WARNING: new redirection conflicts with existing -- ignoring it
+--2418860--     old: 0x0493bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--2418860--     new: 0x0493bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--2418860-- REDIR: 0x493e720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e9e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e2e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x495ccd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f6d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x495b540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493fc10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x495b370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f5a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==2418860== Preferring higher priority redirection:
+--2418860--     old: 0x04a367c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--2418860--     new: 0x04a367c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--2418860-- REDIR: 0x495b3f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f9e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x495b9b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493fa70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x495b470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e1d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493fb60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x4947570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x4941010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493fb10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e6a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493e8d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f3f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493eb00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493f7d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x493fac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x4940f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--2418860-- REDIR: 0x4a33610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--2418860-- REDIR: 0x493b0a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--2418860-- REDIR: 0x4a2f2c0 (libc.so.6:__memchr_avx2) redirected to 0x484fd50 (memchr)
+--2418860-- REDIR: 0x4a367c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--2418860-- REDIR: 0x4a2e5a0 (libc.so.6:__strcspn_sse42) redirected to 0x4853c70 (strcspn)
+--2418860-- REDIR: 0x4a2f590 (libc.so.6:__rawmemchr_avx2) redirected to 0x4853360 (rawmemchr)
+--2418860-- REDIR: 0x4a2e940 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
+--2418860-- REDIR: 0x4a33400 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--2418860-- REDIR: 0x4a36780 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4853440 (mempcpy)
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490CAD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== Use of uninitialised value of size 8
+==2418860==    at 0x48F02EB: _itoa_word (_itoa.c:177)
+==2418860==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x48F02FC: _itoa_word (_itoa.c:177)
+==2418860==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490C5C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490BC05: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x109375: main (main.c:30)
+==2418860== 
+--2418860-- REDIR: 0x493b3e0 (libc.so.6:free) redirected to 0x484b210 (free)
+==2418860== 
+==2418860== HEAP SUMMARY:
+==2418860==     in use at exit: 160 bytes in 10 blocks
+==2418860==   total heap usage: 12 allocs, 2 frees, 2,208 bytes allocated
+==2418860== 
+==2418860== Searching for pointers to 10 not-freed blocks
+==2418860== Checked 106,464 bytes
+==2418860== 
+==2418860== 16 bytes in 1 blocks are indirectly lost in loss record 1 of 5
+==2418860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2418860==    by 0x10927A: main (main.c:11)
+==2418860== 
+==2418860== 16 bytes in 1 blocks are definitely lost in loss record 2 of 5
+==2418860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2418860==    by 0x10928B: main (main.c:12)
+==2418860== 
+==2418860== 48 bytes in 3 blocks are indirectly lost in loss record 3 of 5
+==2418860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2418860==    by 0x1094E6: output_window (a4.c:60)
+==2418860==    by 0x1092FF: main (main.c:19)
+==2418860== 
+==2418860== 64 bytes in 4 blocks are definitely lost in loss record 4 of 5
+==2418860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2418860==    by 0x1093AF: open_window (a4.c:10)
+==2418860==    by 0x109512: output_window (a4.c:63)
+==2418860==    by 0x1092FF: main (main.c:19)
+==2418860== 
+==2418860== 80 (16 direct, 64 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 5
+==2418860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2418860==    by 0x1094E6: output_window (a4.c:60)
+==2418860==    by 0x1092FF: main (main.c:19)
+==2418860== 
+==2418860== LEAK SUMMARY:
+==2418860==    definitely lost: 96 bytes in 6 blocks
+==2418860==    indirectly lost: 64 bytes in 4 blocks
+==2418860==      possibly lost: 0 bytes in 0 blocks
+==2418860==    still reachable: 0 bytes in 0 blocks
+==2418860==         suppressed: 0 bytes in 0 blocks
+==2418860== 
+==2418860== Use --track-origins=yes to see where uninitialised values come from
+==2418860== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 0 from 0)
+==2418860== 
+==2418860== 1 errors in context 1 of 9:
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x109375: main (main.c:30)
+==2418860== 
+==2418860== 
+==2418860== 1 errors in context 2 of 9:
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490BC05: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== 
+==2418860== 1 errors in context 3 of 9:
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490C5C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== 
+==2418860== 1 errors in context 4 of 9:
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x48F02FC: _itoa_word (_itoa.c:177)
+==2418860==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== 
+==2418860== 1 errors in context 5 of 9:
+==2418860== Use of uninitialised value of size 8
+==2418860==    at 0x48F02EB: _itoa_word (_itoa.c:177)
+==2418860==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== 
+==2418860== 1 errors in context 6 of 9:
+==2418860== Conditional jump or move depends on uninitialised value(s)
+==2418860==    at 0x490CAD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==2418860==    by 0x48F679E: printf (printf.c:33)
+==2418860==    by 0x10934F: main (main.c:31)
+==2418860== 
+==2418860== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 0 from 0)
