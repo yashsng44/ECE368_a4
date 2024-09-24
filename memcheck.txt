@@ -106,54 +106,157 @@
 --1476874-- REDIR: 0x493d310 (libc.so.6:strstr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
 --1476874-- REDIR: 0x4a31610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
 --1476874-- REDIR: 0x49390a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
---1476874-- REDIR: 0x4a2c5a0 (libc.so.6:__strcspn_sse42) redirected to 0x4853c70 (strcspn)
---1476874-- REDIR: 0x4a2d590 (libc.so.6:__rawmemchr_avx2) redirected to 0x4853360 (rawmemchr)
---1476874-- REDIR: 0x4958180 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4853a50 (strstr)
-==1476874== Conditional jump or move depends on uninitialised value(s)
-==1476874==    at 0x1092DD: main (main.c:18)
-==1476874== 
-==1476874== 
-==1476874== Process terminating with default action of signal 2 (SIGINT)
-==1476874==    at 0x49A87E2: read (read.c:26)
-==1476874==    by 0x4920C35: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:516)
-==1476874==    by 0x4921D95: _IO_default_uflow (genops.c:362)
-==1476874==    by 0x491441B: _IO_getline_info (iogetline.c:60)
-==1476874==    by 0x491340F: fgets (iofgets.c:53)
-==1476874==    by 0x1092F9: main (main.c:15)
-==1476874== 
-==1476874== HEAP SUMMARY:
-==1476874==     in use at exit: 1,040 bytes in 2 blocks
-==1476874==   total heap usage: 2 allocs, 0 frees, 1,040 bytes allocated
-==1476874== 
-==1476874== Searching for pointers to 2 not-freed blocks
-==1476874== Checked 106,576 bytes
-==1476874== 
-==1476874== 16 bytes in 1 blocks are still reachable in loss record 1 of 2
-==1476874==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1476874==    by 0x10927B: main (main.c:11)
-==1476874== 
-==1476874== 1,024 bytes in 1 blocks are still reachable in loss record 2 of 2
-==1476874==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1476874==    by 0x4912BA3: _IO_file_doallocate (filedoalloc.c:101)
-==1476874==    by 0x4921CDF: _IO_doallocbuf (genops.c:347)
-==1476874==    by 0x4920CDB: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:485)
-==1476874==    by 0x4921D95: _IO_default_uflow (genops.c:362)
-==1476874==    by 0x491441B: _IO_getline_info (iogetline.c:60)
-==1476874==    by 0x491340F: fgets (iofgets.c:53)
-==1476874==    by 0x1092F9: main (main.c:15)
-==1476874== 
-==1476874== LEAK SUMMARY:
-==1476874==    definitely lost: 0 bytes in 0 blocks
-==1476874==    indirectly lost: 0 bytes in 0 blocks
-==1476874==      possibly lost: 0 bytes in 0 blocks
-==1476874==    still reachable: 1,040 bytes in 2 blocks
-==1476874==         suppressed: 0 bytes in 0 blocks
-==1476874== 
-==1476874== Use --track-origins=yes to see where uninitialised values come from
-==1476874== ERROR SUMMARY: 21 errors from 1 contexts (suppressed: 0 from 0)
-==1476874== 
-==1476874== 21 errors in context 1 of 1:
-==1476874== Conditional jump or move depends on uninitialised value(s)
-==1476874==    at 0x1092DD: main (main.c:18)
-==1476874== 
-==1476874== ERROR SUMMARY: 21 errors from 1 contexts (suppressed: 0 from 0)
+--2268462-- REDIR: 0x4a2f2c0 (libc.so.6:__memchr_avx2) redirected to 0x484fd50 (memchr)
+--2268462-- REDIR: 0x4a367c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--2268462-- REDIR: 0x4a2e5a0 (libc.so.6:__strcspn_sse42) redirected to 0x4853c70 (strcspn)
+--2268462-- REDIR: 0x4a2f590 (libc.so.6:__rawmemchr_avx2) redirected to 0x4853360 (rawmemchr)
+--2268462-- REDIR: 0x495a180 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4853a50 (strstr)
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x10936A: search_for_node (a4.c:11)
+==2268462==    by 0x1093AD: open_window (a4.c:21)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x10935F: search_for_node (a4.c:11)
+==2268462==    by 0x1093AD: open_window (a4.c:21)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x1093B7: open_window (a4.c:22)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+--2268462-- REDIR: 0x4a33400 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--2268462-- REDIR: 0x4a36780 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4853440 (mempcpy)
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490CAD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== Use of uninitialised value of size 8
+==2268462==    at 0x48F02EB: _itoa_word (_itoa.c:177)
+==2268462==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x48F02FC: _itoa_word (_itoa.c:177)
+==2268462==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490C5C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490BC05: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+--2268462-- REDIR: 0x493b3e0 (libc.so.6:free) redirected to 0x484b210 (free)
+==2268462== 
+==2268462== HEAP SUMMARY:
+==2268462==     in use at exit: 128 bytes in 8 blocks
+==2268462==   total heap usage: 10 allocs, 2 frees, 2,176 bytes allocated
+==2268462== 
+==2268462== Searching for pointers to 8 not-freed blocks
+==2268462== Checked 106,464 bytes
+==2268462== 
+==2268462== 16 bytes in 1 blocks are indirectly lost in loss record 1 of 5
+==2268462==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2268462==    by 0x109250: main (main.c:11)
+==2268462== 
+==2268462== 32 bytes in 2 blocks are indirectly lost in loss record 2 of 5
+==2268462==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2268462==    by 0x10956F: output_window (a4.c:78)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== 32 (16 direct, 16 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 5
+==2268462==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2268462==    by 0x109261: main (main.c:12)
+==2268462== 
+==2268462== 48 (16 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 5
+==2268462==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2268462==    by 0x10956F: output_window (a4.c:78)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== 48 bytes in 3 blocks are definitely lost in loss record 5 of 5
+==2268462==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2268462==    by 0x10938F: open_window (a4.c:19)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== LEAK SUMMARY:
+==2268462==    definitely lost: 80 bytes in 5 blocks
+==2268462==    indirectly lost: 48 bytes in 3 blocks
+==2268462==      possibly lost: 0 bytes in 0 blocks
+==2268462==    still reachable: 0 bytes in 0 blocks
+==2268462==         suppressed: 0 bytes in 0 blocks
+==2268462== 
+==2268462== Use --track-origins=yes to see where uninitialised values come from
+==2268462== ERROR SUMMARY: 17 errors from 11 contexts (suppressed: 0 from 0)
+==2268462== 
+==2268462== 1 errors in context 1 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490BC05: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== 
+==2268462== 1 errors in context 2 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490C5C3: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== 
+==2268462== 1 errors in context 3 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x48F02FC: _itoa_word (_itoa.c:177)
+==2268462==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== 
+==2268462== 1 errors in context 4 of 11:
+==2268462== Use of uninitialised value of size 8
+==2268462==    at 0x48F02EB: _itoa_word (_itoa.c:177)
+==2268462==    by 0x490BABD: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== 
+==2268462== 1 errors in context 5 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x490CAD6: __vfprintf_internal (vfprintf-internal.c:1516)
+==2268462==    by 0x48F679E: printf (printf.c:33)
+==2268462==    by 0x1092FA: main (main.c:19)
+==2268462== 
+==2268462== 
+==2268462== 3 errors in context 6 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x1093B7: open_window (a4.c:22)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== 
+==2268462== 3 errors in context 7 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x10935F: search_for_node (a4.c:11)
+==2268462==    by 0x1093AD: open_window (a4.c:21)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== 
+==2268462== 3 errors in context 8 of 11:
+==2268462== Conditional jump or move depends on uninitialised value(s)
+==2268462==    at 0x10936A: search_for_node (a4.c:11)
+==2268462==    by 0x1093AD: open_window (a4.c:21)
+==2268462==    by 0x10959B: output_window (a4.c:81)
+==2268462==    by 0x1092D8: main (main.c:18)
+==2268462== 
+==2268462== ERROR SUMMARY: 17 errors from 11 contexts (suppressed: 0 from 0)

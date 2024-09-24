@@ -20,9 +20,7 @@ int main(void) {
             }
     }
 
-    free(head);
+    free_list(&header);
     free(header);
-
-
     return EXIT_SUCCESS;
 }

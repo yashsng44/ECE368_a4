@@ -7,22 +7,34 @@
 // //regex_t regex;
 Node * search_for_node (Header ** header, int target) {
     Node * search_node = (*header)->head;
-
     while(search_node != NULL && search_node->data != target) {
         search_node = search_node->next;
     }
-
     return search_node;
 }
 
-void open_window (Header ** header, Node * newNode) {
-    Node * dummy_node = malloc(sizeof(Node));
-    int target = newNode->data;
+void free_list(Header **header) {
+    Node *current = (*header)->head;
+    Node *next;
+
+    while (current != NULL) {
+        next = current->next;  // Store the next node
+        free(current);         // Free the current node
+        current = next;        // Move to the next node
+    }
+
+    // Set head to NULL after freeing the list
+    (*header)->head = NULL;
+}
+
+void open_window (Header ** header, int target) {
+
     Node * searched = search_for_node(header, target);
     if (searched == NULL) {
-    dummy_node = (*header)->head;
-    (*header)->head = newNode;
-    newNode->next = dummy_node;
+        Node * newNode = (struct Node*) malloc(sizeof(Node));
+        newNode->data = target;
+        newNode->next = (*header)->head;
+        (*header)->head = newNode;
     } // if its not NULL, then the node exists within the llinked list....
     printf("%d\n", (*header)->head->data);
     return;
@@ -45,10 +57,11 @@ void switch_window (Header ** header, int target) {
     if (search_node) {
         if (prev !=NULL) {
         prev->next = search_node->next;
-        open_window(header, search_node);
+        open_window(header, search_node->data);
         } else {
             printf("%d\n", search_node->data);
         }
+        free(search_node);
     }
     return;
 }
@@ -77,6 +90,8 @@ int close_window (Header ** header, int target) {
         prev->next = search_node->next;
         }
     }
+
+    free(search_node);
     printf("%d\n", (*header)->head->data);
     return 1;
 }
@@ -87,18 +102,11 @@ int output_window (char * window_spec, Header ** header) {
 
     if (sscanf(window_spec, "%*[^0-9]%d", &number)) {
     if(strstr(window_spec, "open") == window_spec) {
-        Node * newNode = malloc(sizeof(Node));
-        newNode->data = number;
-        newNode->next = NULL;
-        open_window(header, newNode);
+        open_window(header, number);
     } else if (strstr(window_spec, "switch") == window_spec)   {
         switch_window(header, number);
     } else if (strstr(window_spec, "close") == window_spec) {
         leftovers = close_window(header, number);
-    }
-    } else {
-        printf("No valid number input \n");
-        return 0;
-    }
+    }}
     return leftovers;
 }

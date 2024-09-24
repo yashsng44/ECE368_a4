@@ -16,5 +16,5 @@ Node *tail;
 } Header;
 
 int output_window(char * window_spec, Header ** header);
-
+void free_list(Header ** header);
 #endif
