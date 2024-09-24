@@ -15,6 +15,6 @@ typedef struct Header
 Node *tail;
 } Header;
 
-void output_window(char * window_spec, Header * header);
+int output_window(char * window_spec, Header ** header);
 
 #endif

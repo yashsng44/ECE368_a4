@@ -6,21 +6,22 @@
 
 int main(void) {
 
-
     char window_spec[1000];
-    struct Node * head = malloc(sizeof(Node));
-    struct Header * header = malloc(sizeof(Header));
+    struct Node * head = NULL;
+    struct Header * header = malloc(sizeof(struct Header));
     header->head = head;
+    int leftovers;
     
-    while(header->head != NULL) {
-        if(fgets(window_spec, sizeof(window_spec), stdin)){
+    while(fgets(window_spec, sizeof(window_spec), stdin)) {
             window_spec[strcspn(window_spec, "\n")] = 0;
-            output_window(window_spec, header);
-            printf("%d\n", header->head->data);
-        } else {
-            return EXIT_FAILURE;
-        }
+            leftovers = output_window(window_spec, &header);
+            if (!leftovers) {
+                break;
+            }
     }
+
+    free(head);
+    free(header);
 
 
     return EXIT_SUCCESS;
