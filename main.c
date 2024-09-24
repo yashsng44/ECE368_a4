@@ -10,7 +10,7 @@ int main(void) {
     struct Node * head = NULL;
     struct Header * header = malloc(sizeof(struct Header));
     header->head = head;
-    int leftovers;
+    int leftovers = 1;
     
     while(fgets(window_spec, sizeof(window_spec), stdin)) {
             window_spec[strcspn(window_spec, "\n")] = 0;

@@ -46,7 +46,9 @@ void switch_window (Header ** header, int target) {
         if (prev !=NULL) {
         prev->next = search_node->next;
         open_window(header, search_node);
-        } 
+        } else {
+            printf("%d\n", search_node->data);
+        }
     }
     return;
 }
@@ -81,7 +83,7 @@ int close_window (Header ** header, int target) {
 
 int output_window (char * window_spec, Header ** header) {
     int number;
-    int leftovers;
+    int leftovers = 1;
 
     if (sscanf(window_spec, "%*[^0-9]%d", &number)) {
     if(strstr(window_spec, "open") == window_spec) {
