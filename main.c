@@ -16,14 +16,10 @@ int main(void) {
         if(fgets(window_spec, sizeof(window_spec), stdin)){
             window_spec[strcspn(window_spec, "\n")] = 0;
             output_window(window_spec, header);
+            printf("%d\n", header->head->data);
         } else {
             return EXIT_FAILURE;
         }
-    }
-
-     while(header->head != NULL) {
-        printf("%d\n", header->head->data);
-        header->head = header->head->next;
     }
 
 
