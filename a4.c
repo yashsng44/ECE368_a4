@@ -56,13 +56,8 @@ void switch_window(Header **header, int target)
 {
     if (search_for_node(header, target))
     {
-        printNodes(**header);
         close_window(header, target);
-        printf("after close\n");
-        printNodes(**header);
         open_window(header, target);
-        printf("after open\n");
-        printNodes(**header);
     }
 
     return;
