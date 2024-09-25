@@ -4,22 +4,32 @@
 #include <string.h>
 #include "a4.h"
 
-int main(void) {
-
+int main(void)
+{
     char window_spec[15];
-    struct Node * head = NULL;
-    struct Header * header = malloc(sizeof(struct Header));
-    header->head = head;
-    
-    while(header != NULL) {
+    struct Header *header = malloc(sizeof(struct Header));
+    header->head = NULL;
 
-            fgets(window_spec, sizeof(window_spec), stdin);
-            window_spec[strcspn(window_spec, "\n")] = 0;
-            if (!(output_window(window_spec, &header))) {
-                break;
-            }
+    do
+    {
+        fgets(window_spec, sizeof(window_spec), stdin);
+        output_window(window_spec, &header);
+        if (header->head)
+        {
             printf("%d\n", header->head->data);
-    }
+        }
+    } while (header->head != NULL);
+
+    // while (1)
+    // {
+    //     fgets(window_spec, sizeof(window_spec), stdin);
+    //     output_window(window_spec, &header);
+    //     if (header->head == NULL)
+    //     {
+    //         break;
+    //     }
+    //     printf("%d\n", header->head->data);
+    // }
 
     free_list(&header);
     free(header);
