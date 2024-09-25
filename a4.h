@@ -12,7 +12,6 @@ struct Node *next;
 
 typedef struct Header
 { Node *head;
-Node *tail;
 } Header;
 
 void free_list(Header ** header);
