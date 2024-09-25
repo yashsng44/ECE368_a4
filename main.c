@@ -14,8 +14,10 @@ int main(void) {
     while(fgets(window_spec, sizeof(window_spec), stdin)) {
             window_spec[strcspn(window_spec, "\n")] = 0;
             if (!(output_window(window_spec, &header))) {
+                printf("\n");
                 break;
             }
+            printf("%d\n", header->head->data);
     }
 
     free_list(&header);
