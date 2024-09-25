@@ -19,6 +19,6 @@ t: a4
 	$(VAL) ./a4
 
 clean: # remove all machine generated files
-	rm -f a4 *.o output? *~
+	rm -f a4 *.o output? *~ memcheck.txt
 
 
