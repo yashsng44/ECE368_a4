@@ -72,10 +72,11 @@ int close_window (Header ** header, int target) {
     Node * prev = NULL;
 
     if (search_node == NULL) {
-        return 0;
+        return 1;
     } 
 
     if (search_node->next == NULL) {
+        printf("\n");
         return 0;
     }
     

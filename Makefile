@@ -15,9 +15,6 @@ a4: $(OBJS)
 testmemory: a4
 	$(VAL) ./a4 "open 1"
 
-t: a4 
-	$(VAL) ./a4
-
 clean: # remove all machine generated files
 	rm -f a4 *.o output? *~ memcheck.txt
 
