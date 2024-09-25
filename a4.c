@@ -25,23 +25,8 @@ Node *search_for_node(Header **header, int target)
 //     printf("NULL\n");
 // }
 
-void free_list(Header **header)
-{
-    Node *current = (*header)->head;
-    Node *next;
-
-    while (current != NULL)
-    {
-        next = current->next; // Store the next node
-        free(current);        // Free the current node
-        current = next;       // Move to the next node
-    }
-    (*header)->head = NULL;
-}
-
 void open_window(Header **header, int target)
 {
-
     // Node * searched = search_for_node(header, target);
     // if (searched == NULL) {
     Node *newNode = malloc(sizeof(Node));
@@ -63,7 +48,7 @@ void switch_window(Header **header, int target)
     return;
 }
 
-int close_window(Header **header, int target)
+void close_window(Header **header, int target)
 {
     Node *search_node = (*header)->head; // creates a copy of the header head..
     Node *prev = NULL;
@@ -79,34 +64,23 @@ int close_window(Header **header, int target)
         if (prev == NULL && search_node == (*header)->head)
         {
             (*header)->head = (*header)->head->next; // shift the header to the next node; closing the top node.
-            if ((*header)->head == NULL)
-            {
-                free(search_node);
-                return 0;
-            }
         }
         else
         {
             prev->next = search_node->next;
-
         }
     }
 
     free(search_node);
-    return 1;
+    return;
 }
 
-int output_window(char *window_spec, Header **header)
+void output_window(char *window_spec, Header **header)
 {
     int number;
-    int leftovers = 1;
 
-    if (sscanf(window_spec, "%*[^0-9]%d", &number))
+    if (sscanf(window_spec, "%*[^0-9]%d", &number) == 1)
     {
-        if (!(strcmp(window_spec, "open")) || !(strcmp(window_spec, "switch")) || !(strcmp(window_spec, "close")))
-        {
-            return 1;
-        }
         if (strstr(window_spec, "open") == window_spec)
         {
             open_window(header, number);
@@ -117,8 +91,8 @@ int output_window(char *window_spec, Header **header)
         }
         else if (strstr(window_spec, "close") == window_spec)
         {
-            leftovers = close_window(header, number);
+            close_window(header, number);
         }
     }
-    return leftovers;
+    return;
 }

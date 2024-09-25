@@ -20,18 +20,6 @@ int main(void)
         }
     } while (header->head != NULL);
 
-    // while (1)
-    // {
-    //     fgets(window_spec, sizeof(window_spec), stdin);
-    //     output_window(window_spec, &header);
-    //     if (header->head == NULL)
-    //     {
-    //         break;
-    //     }
-    //     printf("%d\n", header->head->data);
-    // }
-
-    free_list(&header);
     free(header);
-    return EXIT_SUCCESS;
+    return 0;
 }
