@@ -11,7 +11,8 @@ int main(void) {
     struct Header * header = malloc(sizeof(struct Header));
     header->head = head;
     
-    while(fgets(window_spec, sizeof(window_spec), stdin)) {
+    while(header != NULL) {
+            fgets(window_spec, sizeof(window_spec), stdin);
             window_spec[strcspn(window_spec, "\n")] = 0;
             if (!(output_window(window_spec, &header))) {
                 printf("\n");

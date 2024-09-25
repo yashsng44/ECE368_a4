@@ -26,13 +26,13 @@ void free_list(Header **header) {
 
 void open_window (Header ** header, int target) {
 
-    //Node * searched = search_for_node(header, target);
-    //if (searched == NULL) {
+    // Node * searched = search_for_node(header, target);
+    // if (searched == NULL) {
         Node * newNode = malloc(sizeof(Node));
         newNode->data = target;
         newNode->next = (*header)->head;
         (*header)->head = newNode;
-    //} 
+    // } 
     return;
 }
 

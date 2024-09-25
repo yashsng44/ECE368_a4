@@ -13,9 +13,9 @@ a4: $(OBJS)
 	$(GCC) -c $*.c
 
 testmemory: a4
-	$(VAL) ./a4 "open 1"
+	$(VAL) ./a4 
 
 clean: # remove all machine generated files
-	rm -f a4 *.o output? *~ memcheck.txt
+	rm -f a4 *.o output? *~ 
 
 
